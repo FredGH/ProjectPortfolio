@@ -7,7 +7,7 @@ img, embed, object, video {
 nav, a, button, video {
     min-width:48px;
     min-width:48px;
-    padding: 1.5em; /* space bweteen elem => 1.5 size of the nav, a, button, video tags */
+    /*padding: 1.5em;  space bweteen elem => 1.5 size of the nav, a, button, video tags */
 }
 
 /*affect elements in the body*/

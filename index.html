@@ -5,10 +5,10 @@
   <!--Setting the char set-->
   <meta charset="utf-8">
   <!--Tell IE use the best engine you've got-->
-  <meta http-equiv="X-AU-Comptaible" content="IE=edge">
-  <!--This is mobile, how to display the page initially when it loads -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!--This is mobile, how to display the page initially when it loads -->
   <!-- This defines the area of the screen the browser can render content to -->
-  <!-- Hardware pixel (HP) are different on each application (desktop, phone, tablet) => each device have an inbuilt ratio factor between HP and DIP
+  <!-- Hardware pixel (HP) are different on each application (desktop, phone, tablet) => each device have an inbuilt ratio factor between HP and DIP -->
   <!-- width=device-width => instructs the page to match the screen width and deice independent pixel (DIP) => reflow content on any screen size -->
   <!-- initial-scale=1 => 1 to 1 relationship between DIP and CSS pixel => then we use the CSS pixel and the DIP will be resize following the CSS without scaling -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,9 +24,9 @@
     <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/styles.css">
   <!-- link to google font css - to ensure style are comapible across all browsers-->
-  <link href='http://fonts.googleapis.com/css?family=Lato' rel="stylesheet" type="' text/css'">
+  <link href='http://fonts.googleapis.com/css?family=Lato' rel="stylesheet" type="text/css">
   <!-- to ensure style are comapible across all browsers-->
-  <link rel="stylesheet" src="//normalize-css.google.com/svn/trunk/normalize.css">
+  <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
 
   <!-- Load scripts -->
   <script type="text/javascript" src="lib/jquery-2.0.3.intellisense.js"></script>
@@ -38,14 +38,14 @@
 <body>
 
 <!-- Modal -->
-<div class="modal fade" id="flowerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="flowerModal" tabindex="-1" role="dialog" aria-labelledby="flowerModal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title" id="flowerLabel">Work In Progress</h4>
       </div>
       <div class="modal-body">
-        <img class="img-responsive" src="images/flower.jpg">
+        <img class="img-responsive" src="images/flower.jpg" alt="flower">
         This section is under construction.
       </div>
       <div class="modal-footer">
@@ -54,14 +54,14 @@
     </div>
   </div>
 </div>
-<div class="modal fade" id="bokehModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="bokehModal" tabindex="-1" role="dialog" aria-labelledby="bokehModal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title" id="bokehLabel">Work In Progress</h4>
       </div>
       <div class="modal-body">
-        <img class="img-responsive" src="images/flower.jpg">
+        <img class="img-responsive" src="images/boreh.jpg" alt="boreh">
         This section is under construction.
       </div>
       <div class="modal-footer">
