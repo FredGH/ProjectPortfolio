@@ -1,0 +1,17 @@
+/* called in the .html file => see link href='http://fonts.googleapis.com/css?family=Lato' rel="stylesheet" type="' text/css'">*/
+/* Set the border to see where the elements are */
+/** {
+    border: 1px solid blue !important;
+}*/
+
+/*Will only apply when screen is less than 300px -> the responsive design is going to kick in*/
+/*In this case the background-color of h1 will become blue */
+/*could call another styles.css based on the condition */
+/*we could have several media queries with different break point and different condition => to increase responsiveness */
+@media only screen /*'print' for printing stuff*/ and (max-width: 500px /*this is the break point*/) {
+    h1 {
+        background-color: blue;
+    }
+
+}
+

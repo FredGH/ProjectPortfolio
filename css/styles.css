@@ -1,0 +1,46 @@
+/*catch all to ensure these items do not overflow their container*/
+img, embed, object, video {
+    max-width:100%;
+}
+
+/*tap target min size to ensure they can be hit well what ever the devide*/
+nav, a, button, video {
+    min-width:48px;
+    min-width:48px;
+    padding: 1.5em; /* space bweteen elem => 1.5 size of the nav, a, button, video tags */
+}
+
+/*affect elements in the body*/
+body
+{
+    font-family: 'Lato',  sans-serif;
+    color:darkgray;
+    font-weight:300;
+}
+
+hr {
+    border: solid lightgrey;
+}
+
+.text-muted {
+    color: #BCBBBB;
+}
+
+.text-thin {
+    font-weight:100;
+}
+
+.title-super{
+    font-size: 50px;
+}
+
+.title-logo{
+    margin-top: 20px;
+}
+
+.img-size
+{
+    width: 100%;
+    height: 100%;
+}
+
