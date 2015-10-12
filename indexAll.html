@@ -1,0 +1,265 @@
+<!-- How to reuse Html -->
+<!-- http://api.jquery.com/load/-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--Tell IE use the best engine you've got-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--This is mobile, how to display the page initially when it loads -->
+    <!-- This defines the area of the screen the browser can render content to -->
+    <!-- Hardware pixel (HP) are different on each application (desktop, phone, tablet) => each device have an inbuilt ratio factor between HP and DIP -->
+    <!-- width=device-width => instructs the page to match the screen width and deice independent pixel (DIP) => reflow content on any screen size -->
+    <!-- initial-scale=1 => 1 to 1 relationship between DIP and CSS pixel => then we use the CSS pixel and the DIP will be resize following the CSS without scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Carousel Template for Bootstrap</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="css/carousel.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="lib/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="lib/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- link to google font css - to ensure style are comapible across all browsers-->
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel="stylesheet">
+    <!-- to ensure style are comapible across all browsers-->
+    <link rel="stylesheet" href="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+</head>
+
+<body>
+
+<!-- Wrap the rest of the page in another container to center all the content. -->
+<div class="container marketing">
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+        <!-- NavBar
+        ================================================== -->
+        <div id="nav-bar" ></div>
+        <!-- Links
+        ================================================== -->
+        <div id="links" ></div>
+        <!-- Carousel
+        ================================================== -->
+        <div id="carousel"></div>
+    </div>
+</div>
+
+<!-- Marketing messaging and featurettes
+================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
+<div class="container marketing">
+<!-- Three columns of text below the carousel -->
+    <div class="row">
+        <div class="col-lg-3">
+            <img  class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+            <h2>Classic Arcade Game</h2>
+            <p>This section shows an implementation of the famous frog game in javascript.</p>
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#classicArcadeGameModal">View details &raquo;</button>
+        </div><!-- /.col-lg-3 -->
+        <div class="col-lg-3">
+            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+            <h2>Website Optimization</h2>
+            <p>This section demonstrates how to optimise web sites.</p>
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#webOptimisationGameModal">View details &raquo;</button>
+        </div><!-- /.col-lg-3 -->
+        <div class="col-lg-3">
+            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+            <h2>Neighbourhood Map</h2>
+            <p>DThis section exhibits how to integrate a map in html and interact with it.</p>
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#neighbourhoodMapModal">View details &raquo;</button>
+        </div><!-- /.col-lg-3 -->
+        <div class="col-lg-3">
+            <img  class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+            <h2>Feed Reader Testing</h2>
+            <p>This section implements RSS feed tests using the Jasmine Unit Test framework.</p>
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#jasmineModal">View details &raquo;</button>
+        </div><!-- /.col-lg-3 -->
+    </div><!-- /.row -->
+
+    <!-- START THE FEATURETTES  -->
+
+   <!--  <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5">
+            <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+            <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+            <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5">
+            <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        </div>
+    </div>
+
+    <hr class="featurette-divider"> -->
+
+    <!-- /END THE FEATURETTES -->
+
+    <!-- FOOTER -->
+    <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <!--<p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>-->
+    </footer>
+
+</div><!-- /.container -->
+
+<!-- Modals Details
+<!--http://jsfiddle.net/matt_hwy1/hRq82/1/ -->
+<!-- http://tutsme-webdesign.info/bootstrap-3-1-and-modals-with-remote-content/-->
+<!--================================================== -->
+<div class="modal fade" id="classicArcadeGameModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div align="center">
+                    <h2 class="modal-title">Classic Arcade Game (The Frogger)</h2>
+                    <img class ="img-responsive img-rounded img-size" src="images/Frogger.png" alt="Frogger" width="40%" height="10%">
+                </div>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li>Clone of the classic game, Frogger. Udacity provided the art assets and game engine.</li>
+                    <p></p>
+                    <li>Coded player, enemies, and other game entities in JavaScript's object-oriented pseudo-classical style.</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info btn-lg" data-dismiss="modal" onclick="location.href ='indexFroggerProj.html'">View Test Results &raquo;</button>
+                <button type="button" class="btn btn-info btn-lg" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="webOptimisationModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div align="center">
+                    <h2 class="modal-title">Web Optimisation</h2>
+                    <img class ="img-responsive img-rounded img-size" src="images/.png" alt="Frogger" width="40%" height="10%">
+                </div>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li>Optimized critical rendering path of existing website to achieve PageSpeed Insights score above 90.</li>
+                    <p></p>
+                    <li>Eliminated inefficiencies in the website's scroll animation.  Site now scrolls at 60 frames per second.</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info btn-lg" data-dismiss="modal" onclick="location.href ='indexUnitTestProj.html'">View Test Results &raquo;</button>
+                <button type="button" class="btn btn-info btn-lg" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="neighbourhoodMapModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div align="center">
+                    <h2 class="modal-title">Neighborhood Map</h2>
+                    <img class ="img-responsive img-rounded img-size" src="images/.png" alt="Frogger" width="40%" height="10%">
+                </div>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li>Single-page, responsive application built with Knockout.js framework and hosted on GitHub Pages.</li>
+                    <p></p>
+                    <li>Developed a full-page map that loads with 20 popular bars and restaurants in Boston, MA.</li>
+                    <p></p>
+                    <li>User can view recent pictures taken at each location (retrieved by AJAX request to Instagram API).</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info btn-lg" data-dismiss="modal" onclick="location.href ='indexUnitTestProj.html'">View Test Results &raquo;</button>
+                <button type="button" class="btn btn-info btn-lg" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="jasmineModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div align="center">
+                    <h2 class="modal-title">RSS Feed Unit Tested</h2>
+                </div>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li>Unit Test Synch & Async RSS Feeds with Jasmine</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info btn-lg" data-dismiss="modal" onclick="location.href ='indexUnitTestProj.html'">View Test Results &raquo;</button>
+                <button type="button" class="btn btn-info btn-lg" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript (At the end for performance reasons)
+================================================== -->
+<!-- Load the components into the page (this is for re-use across pages -->
+<script>
+    $( "#nav-bar" ).load("navBar.html" );
+    $( "#links" ).load("links.html" );
+    $( "#carousel" ).load("carousel.html" );
+</script>
+<script src="lib/holder.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="lib/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>

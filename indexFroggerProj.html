@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Effective JavaScript: Frogger</title>
+    <link rel="stylesheet" href="froggerProj/css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <!-- link to google font css - to ensure style are comapible across all browsers-->
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel="stylesheet">
+    <!-- to ensure style are comapible across all browsers-->
+    <link rel="stylesheet" href="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="lib/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="lib/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<!-- NabBar
+================================================== -->
+<div id="nav-bar"></div>
+
+<!-- Links
+================================================== -->
+<div id="links"></div>
+
+<!-- Frogger
+================================================== -->
+<body>
+<div>
+    <label>User Type</label>
+    <select id="userType" onchange="onUserTypeChange();">
+        <option value="Auto" selected="selected">Auto</option>
+        <option value="User" onchange="onUserPlayChange();">User</option>
+    </select>
+    <label>Result: </label>
+    <label id="result"></label>
+</div>
+
+<script>
+    $( "#nav-bar" ).load("navBar.html");
+    $( "#links" ).load("links.html");
+</script>
+<script src="froggerProj/js/utils.js"></script>
+<script src="froggerProj/js/enemy.js"></script>
+<script src="froggerProj/js/player.js"></script>
+<script src="froggerProj/js/resources.js"></script>
+<script src="froggerProj/js/app.js"></script>
+<script src="froggerProj/js/engine.js"></script>
+</body>
+
+<!-- Footer-->
+<footer>
+    <p class="pull-right"><a href="#">Back to top</a></p>
+    <!--<p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>-->
+</footer>
+
+</html>

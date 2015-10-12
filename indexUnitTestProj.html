@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>UdacityFeeds</title>
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,700">
+    <link rel="stylesheet" href="unitTestProj/css/normalize.css">
+    <link rel="stylesheet" href="unitTestProj/css/icomoon.css">
+    <link rel="stylesheet" href="unitTestProj/css/style.css">
+    <link rel="stylesheet" href="unitTestProj/jasmine/lib/jasmine-2.1.2/jasmine.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <!-- link to google font css - to ensure style are comapible across all browsers-->
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel="stylesheet">
+    <!-- to ensure style are comapible across all browsers-->
+    <link rel="stylesheet" href="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+
+    <script src="unitTestProj/jasmine/lib/jasmine-2.1.2/jasmine.js"></script>
+    <script src="unitTestProj/jasmine/lib/jasmine-2.1.2/jasmine-html.js"></script>
+    <script src="unitTestProj/jasmine/lib/jasmine-2.1.2/boot.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- Custom styles for this template -->
+    <link href="css/carousel.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="lib/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="lib/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<!-- NabBar
+================================================== -->
+<div id="nav-bar"></div>
+
+<!-- Links
+================================================== -->
+<div id="links"></div>
+
+<!-- The Test
+================================================== -->
+<body class="menu-hidden" align="center">
+<div class="header">
+    <a href="#" class="menu-icon-link">
+        <i class="icon-list"></i>
+    </a>
+
+    <h1 class="header-title">Feeds</h1>
+</div>
+<div class="menu hidden">
+    <ul class="feed-list"></ul>
+</div>
+<div class="feed"></div>
+<!-- Footer -->
+<footer>
+    <p class="pull-right"><a href="#">Back to top</a></p>
+</footer>
+
+<script>
+    $( "#nav-bar" ).load("./navBar.html" );
+    $( "#links" ).load("./links.html" );
+</script>
+<script class="tpl-entry" type="text/x-handlebars-template">
+
+    <a class="entry-link" href="{{link}}">
+        <article class="entry">
+            <h2>{{title}}</h2>
+            <p>{{contentSnippet}}</p>
+        </article>
+    </a>
+</script>
+<script class="tpl-feed-list-item" type="text/x-handlebars-template">
+    <li>
+        <a href="#" data-id="{{id}}">{{name}}</a>
+    </li>
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.jsdelivr.net/handlebarsjs/2.0.0/handlebars.min.js"></script>
+<script src="http://google.com/jsapi"></script>
+<script src="unitTestProj/js/app.js"></script>
+<script src="unitTestProj/jasmine/spec/feedreader.js"></script>
+
+
+</body>
+</html>
