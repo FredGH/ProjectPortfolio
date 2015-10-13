@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>UdacityFeeds</title>
+    <title>Unit Test RSS Feeds</title>
 
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,700">
     <link rel="stylesheet" href="unitTestProj/css/normalize.css">
@@ -47,18 +47,24 @@
 
 <!-- The Test
 ================================================== -->
-<body class="menu-hidden" align="center">
-<div class="header">
-    <a href="#" class="menu-icon-link">
-        <i class="icon-list"></i>
-    </a>
+<body class="menu-hidden">
+<div class ="container">
+    <div class ="row">
+        <div class ="col-md-12">
+            <div class="header">
+                <a href="#" class="menu-icon-link">
+                    <i class="icon-list"></i>
+                </a>
 
-    <h1 class="header-title">Feeds</h1>
+                <h1 class="header-title">Feeds</h1>
+            </div>
+            <div class="menu hidden">
+                <ul class="feed-list"></ul>
+            </div>
+            <div class="feed"></div>
+        </div>
+    </div>
 </div>
-<div class="menu hidden">
-    <ul class="feed-list"></ul>
-</div>
-<div class="feed"></div>
 <!-- Footer -->
 <footer>
     <p class="pull-right"><a href="#">Back to top</a></p>
@@ -69,7 +75,6 @@
     $( "#links" ).load("./links.html" );
 </script>
 <script class="tpl-entry" type="text/x-handlebars-template">
-
     <a class="entry-link" href="{{link}}">
         <article class="entry">
             <h2>{{title}}</h2>
