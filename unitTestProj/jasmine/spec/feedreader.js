@@ -1,3 +1,8 @@
+/* write more "secure" codes by preventing things such as marking down a
+ function with bad syntax to execute, using variable before declaring it
+ or loading unused variables*/
+'use strict';
+
 /* feedreader.js
  *
  * This is the spec file that Jasmine will read and contains
@@ -8,11 +13,19 @@
  * since some of these tests may require DOM elements. We want
  * to ensure they don't run until the DOM is ready.
  */
+
+/*explains the 'done()' function: http://www.htmlgoodies.com/beyond/javascript/stips/using-jasmine-2.0s-new-done-function-to-test-asynchronous-processes.html
+ quick explain:
+ The first beforeEach() does not include the done function because there is no asynchronous processing taking place within it.
+ However, the beforeEach() of the nested describe ("when retrieved by name") does because the menus' getMenuByName() function is asynchronous.
+ The done() call is made within the success() callback function to instruct jasmine that beforeEach() has terminated and it is now safe to continue
+ with the it() function. There are no asynchronous events in the it() function, so the done() function is not utilized, although we could include it if we needed to.
+ */
 $(function() {
     /* This is our first test suite - a test suite just contains
-    * a related set of tests. This suite is all about the RSS
-    * feeds definitions, the allFeeds variable in our application.
-    */
+     * a related set of tests. This suite is all about the RSS
+     * feeds definitions, the allFeeds variable in our application.
+     */
     describe('RSS Feeds', function() {
         /* This is our first test - it tests to make sure that the
          * allFeeds variable has been defined and that it is not
@@ -31,12 +44,12 @@ $(function() {
          * and that the URL is not empty.
          */
         it('ensures it has a URL defined adds and that the URL is not empty', function () {
-        for (var i =0; i <allFeeds.length; i++) {
-            var feed = allFeeds[i];
-            expect(feed.url).toBeDefined();
-            expect(feed.url).not.toBe("");
-            expect(feed.url).not.toEqual(jasmine.anything);
-            expect(feed.url).toContain("http:");
+            for (var i =0; i <allFeeds.length; i++) {
+                var feed = allFeeds[i];
+                expect(feed.url).toBeDefined();
+                expect(feed.url).not.toBe("");
+                expect(feed.url).not.toEqual(jasmine.anything);
+                expect(feed.url).toContain("http:");
             }
         });
 
@@ -63,14 +76,14 @@ $(function() {
          * hiding/showing of the menu element.
          */
         it('ensures the menu element is hidden by default', function () {
-                expect($('body').hasClass('menu-hidden')).toBe(true);
+            expect($('body').hasClass('menu-hidden')).toBe(true);
         });
 
-         /* Ensures the menu changes
-          * visibility when the menu icon is clicked. This test
-          * should have two expectations: does the menu display when
-          * clicked and does it hide when clicked again.
-          */
+        /* Ensures the menu changes
+         * visibility when the menu icon is clicked. This test
+         * should have two expectations: does the menu display when
+         * clicked and does it hide when clicked again.
+         */
         it('ensures the menu changes visibility when the menu icon is clicked', function () {
             var menuIconLink = $('.menu-icon-link');
             var body = $('body');
@@ -103,7 +116,7 @@ $(function() {
         });
         // Ensures there is at least one entry
         it('after feed loads, it should have at least one entry', function (done) {
-            expect($('.feed').find('.entry').length).toBeGreaterThan(0);
+            expect($('.feed .entry').length).toBeGreaterThan(0); //look for the 'feed' class and then the 'entry' class anywhere in the tree from this point on
             done();
         });
     });
@@ -114,18 +127,55 @@ $(function() {
         /* Ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          */
-         var initContent, nextContent;
+        var initContent, nextContent;
         beforeEach(function (done) {
             //get the original content
-            initContent = $('.feed').find('.entry');
+            initContent = $('.feed .entry');  //look for the 'feed' class and then the 'entry' class anywhere in the tree from this point on
             //loads the first feed async
             loadFeed(1, done);
         });
         it('content should change', function (done) {
-            nextContent = $('.feed').find('.entry');
+            nextContent = $('.feed').find('.entry');  //look for the 'feed' class and then the 'entry' class anywhere in the tree from this point on
             //check the content is changed
             expect(initContent).not.toBe(nextContent);
             done();
         });
     });
+
+    /* A test suite for testing that it actually gets new content */
+    describe('New Feed Selection' , function() {
+
+        /* A test that ensures when a new feed is loaded by the loadFeed
+         * function that the content actually changes.
+         */
+        var oldHref;
+        var newHref;
+        var index = 1;
+
+        /* Load both feeds*/
+        beforeEach(function(done) {
+            loadFeed(index, function() {
+                newHref = $('.entry-link').attr("href");
+                done();
+            });
+        });
+
+        /* The index increases by one after the load of each test*/
+        afterEach(function(done) {
+            index++;
+            done();
+        });
+
+        function newFeeds() {
+            it('index [' + (i-1) + '] and [' + i + '] are not equal', function(done) {
+                expect(oldHref).not.toBe(newHref);
+                done();
+            });
+
+        }
+        for(var i = 1; i < allFeeds.length; i++) {
+            newFeeds();
+        }
+    });
+
 }());
