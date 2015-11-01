@@ -58,8 +58,8 @@
       <file leaf-file-name="indexAll.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/indexAll.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5123384">
-              <caret line="171" column="145" selection-start-line="171" selection-start-column="145" selection-end-line="171" selection-end-column="145" />
+            <state vertical-scroll-proportion="0.5497076">
+              <caret line="173" column="18" selection-start-line="173" selection-start-column="18" selection-end-line="173" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -152,10 +152,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-145" />
-    <option name="y" value="57" />
+    <option name="x" value="54" />
+    <option name="y" value="-8" />
     <option name="width" value="1874" />
-    <option name="height" value="1092" />
+    <option name="height" value="1096" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -354,7 +354,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-145" y="57" width="1874" height="1092" extended-state="0" />
+    <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20315903" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -781,8 +781,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/indexAll.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5123384">
-          <caret line="171" column="145" selection-start-line="171" selection-start-column="145" selection-end-line="171" selection-end-column="145" />
+        <state vertical-scroll-proportion="0.5497076">
+          <caret line="173" column="18" selection-start-line="173" selection-start-column="18" selection-end-line="173" selection-end-column="18" />
           <folding />
         </state>
       </provider>
