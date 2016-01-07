@@ -40,7 +40,7 @@ Player.prototype.update = function(allEnemies) {
     else {
 
         //Establish whether there is collision just before the player moves
-        hasCollided = this.hasCollided(0,0,allEnemies);
+        hasCollided = this.hasCollided(allEnemies);
 
         if (hasCollided) {
             //Move the player back somewhere on the start line...
@@ -96,8 +96,10 @@ Player.prototype.update = function(allEnemies) {
 };
 
 /* The proposed next x and y points for the player on the canvas */
-Player.prototype.walkPath = function()
-{
+Player.prototype.walkPath = function() {
+    var tempX;
+    var tempY;
+
     if (this.y >  300 &&  this.y <= 400) {
         tempX = this.x + 0.001;
         tempY = this.y - 1;
@@ -130,7 +132,7 @@ Player.prototype.walkPath = function()
  bufferXY = 60 is a buffer around the X and Y enemies' coordinate */
 Player.prototype.hasCollided = function(allEnemies) {
 
-    return this.checkCollision(this.x, allEnemies, 50);
+    return this.checkCollision(this.x, this.y, allEnemies, 50);
 };
 
 /* Check whether the player could collide in the enemies
@@ -140,29 +142,34 @@ Player.prototype.hasCollided = function(allEnemies) {
 Player.prototype.couldCollide = function(x, y, allEnemies) {
 
     //bufferXY =100 (greater than bufferXY = 60 is a buffer around the X and Y enemies' coordinates
-    return this.checkCollision(x, allEnemies, 55 );
+    return this.checkCollision(x, y,  allEnemies,55 );
 };
 
-/* Check for a collision based on a buffer from the X and Y coordinates.
+/* Check for a collision based on a buffer from the X  coordinates.
  Return true for a collision and false if there is none */
-Player.prototype.checkCollision = function(x,allEnemies, bufferXY) {
+Player.prototype.checkCollision = function(x, y,allEnemies, bufferX) {
     //It appears it is very unlikely for a collision to happen when the coordinates (X,Y)
     //of the any enemies and the one of the player are equal. In order to make hits more probable,
     //a perimeter is defined around the main enemy point. If the user point is placed within this perimeter,
     //then there is collision.
+
     for (var i =0; i< allEnemies.length; i++)
     {
         var enemy = allEnemies[i];
-        if ( ((x <= enemy.x + bufferXY) && (x >= enemy.x - bufferXY)))
+        //console.warn("Player x: " + x + "y: " + y + " - enemy id: " + i +" x: " + enemy.x + " y: " + enemy.y);
+
+        if ( (x >= enemy.x) && (x <= (enemy.x + bufferX)) // the player is on or front of an enemy (given a buffer offset)
+            &&
+            (y === enemy.y) // the player and enemy are on the same ordinate
+        )
         {
             console.log("Player.prototype.checkCollisions ->  Collision");
             return true;
         }
 
         console.log("Player.prototype.checkCollisions ->  No collision");
-        return false;
+        //return false;
     }
-
     return false;
 };
 
@@ -170,7 +177,7 @@ Player.prototype.checkCollision = function(x,allEnemies, bufferXY) {
 Player.prototype.MoveBackToStartLine = function() {
 
     var tempX = getRandomArbitrary(0,400);
-    var tempY = this.startY;
+    var tempY = 340;
 
     //move the player somewhere on the start line...
     this.move(tempX, tempY);
@@ -178,8 +185,7 @@ Player.prototype.MoveBackToStartLine = function() {
 
 /* Move the player to the new coordinates */
 /* Ensure the player stays within the canvas boundaries */
-Player.prototype.move = function(x,y)
-{
+Player.prototype.move = function(x,y) {
     //Store x and y in temp variables
     var tempX = x;
     var tempY = y;
@@ -194,12 +200,12 @@ Player.prototype.move = function(x,y)
     }
 
     if (y < 0) {
-        tempY = 0;
+        tempY = 340;
         setWonResultStatus();
     }
 
     if (y > 400) {
-        tempY = 400;
+        tempY = 340;
     }
 
     //apply the modified tempX and TempY
@@ -221,22 +227,22 @@ Player.prototype.handleInput = function(obj) {
     //left
     if (obj === 37 )
     {
-        this.move(this.x - 30, this.y);
+        this.move(this.x - 100, this.y);
     }
     //up
     else if (obj ===  38 )
     {
-        this.move(this.x, this.y - 10);
+        this.move(this.x, this.y - 100);
     }
     //right
     else if (obj === 39 )
     {
-        this.move(this.x + 30, this.y);
+        this.move(this.x + 100, this.y);
     }
     //down
     else if(obj === 40)
     {
-        this.move(this.x, this.y+10);
+        this.move(this.x, this.y+100);
     }
     else
     {

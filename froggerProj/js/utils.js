@@ -10,26 +10,22 @@ function getRandomArbitrary(min, max) {
 }
 
 /* Set the status of the result to won*/
-function setWonResultStatus()
-{
+function setWonResultStatus() {
     setResultStatus("!!!WON!!!");
 }
 
 /* Set the status of the result to lost*/
-function setLostResultStatus()
-{
+function setLostResultStatus() {
     setResultStatus("^^^LOST^^^");
 }
 
 /* Set the status of the result to empty*/
-function setIntiialResultStatus()
-{
+function setIntiialResultStatus() {
     setResultStatus("Playing in Progress...");
 }
 
 /* Set the status of the resut (won/lost/empty)*/
-function setResultStatus(status)
-{
+function setResultStatus(status) {
     if (status === "Playing in Progress...") {
         document.getElementById('result').innerHTML = status;
     }
@@ -39,8 +35,7 @@ function setResultStatus(status)
 }
 
 /*Establish the value of the selected 'mode' combo box.*/
-onUserTypeChange = function()
-{
+onUserTypeChange = function() {
     var userTypeElem = document.getElementById("userType");
     userType = userTypeElem.options[userTypeElem.selectedIndex].value;
     counter = 0;
